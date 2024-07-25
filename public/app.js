@@ -1,5 +1,9 @@
 // const socket = io("ws://localhost:4008");
-const socket = io("https://chat-app-t35u.onrender.com");
+const socket = io(
+  process.env.NODE_ENV === "production"
+    ? "https://chat-app-2-gwtz.onrender.com"
+    : "ws://localhost:4008"
+);
 const msgInput = document.querySelector("#message");
 const nameInput = document.querySelector("#name");
 const chatRoom = document.querySelector("#room");
